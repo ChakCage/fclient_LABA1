@@ -137,45 +137,45 @@ public class MainActivity extends AppCompatActivity implements TransactionEvents
         return hex;
     }
 
-    public void onButtonClick(View v)
-    {
-//        new Thread(()-> {
-//            try {
-//                byte[] trd = stringToHex("9F0206000000000100");
-//                boolean ok = transaction(trd);
-//                runOnUiThread(()-> {
-//                    Toast.makeText(MainActivity.this, ok ? "ok" : "failed", Toast.LENGTH_SHORT).show();
-//                });
+//    public void onButtonClick(View v)
+//    {
+////        new Thread(()-> {
+////            try {
+////                byte[] trd = stringToHex("9F0206000000000100");
+////                boolean ok = transaction(trd);
+////                runOnUiThread(()-> {
+////                    Toast.makeText(MainActivity.this, ok ? "ok" : "failed", Toast.LENGTH_SHORT).show();
+////                });
+////
+////            } catch (Exception ex) {
+////                // todo: log error
+////            }
+////        }).start();
+////        byte[] key = stringToHex("0123456789ABCDEF0123456789ABCDE0");
+////        byte[] enc = encrypt(key, stringToHex("000000000000000102"));
+////        byte[] dec = decrypt(key, enc);
+////        String s = new String(Hex.encodeHex(dec)).toUpperCase();
+////        Toast.makeText(this, s, Toast.LENGTH_SHORT).show();
+////
+//        byte[] trd = stringToHex("9F0206000000000100");
+//        transaction(trd);
 //
-//            } catch (Exception ex) {
-//                // todo: log error
-//            }
-//        }).start();
-//        byte[] key = stringToHex("0123456789ABCDEF0123456789ABCDE0");
-//        byte[] enc = encrypt(key, stringToHex("000000000000000102"));
-//        byte[] dec = decrypt(key, enc);
-//        String s = new String(Hex.encodeHex(dec)).toUpperCase();
-//        Toast.makeText(this, s, Toast.LENGTH_SHORT).show();
-//
-        byte[] trd = stringToHex("9F0206000000000100");
-        transaction(trd);
-
-//        Intent it = new Intent(this, PinpadActivity.class);
-////        startActivity(it);
-//        activityResultLauncher.launch(it);
-    }
-
-//    public void onButtonClick(View v){
-//        Toast.makeText(this, "Hello", Toast.LENGTH_SHORT).show();
-//        testHttpClient();
+////        Intent it = new Intent(this, PinpadActivity.class);
+//////        startActivity(it);
+////        activityResultLauncher.launch(it);
 //    }
+
+    public void onButtonClick(View v){
+        Toast.makeText(this, "Hello", Toast.LENGTH_SHORT).show();
+        testHttpClient();
+    }
 
 
     protected void testHttpClient()
     {
         new Thread(() -> {
             try {
-                HttpURLConnection uc = (HttpURLConnection) (new URL("http://10.0.2.2:8080/api/v1/title").openConnection());
+                HttpURLConnection uc = (HttpURLConnection) (new URL("http://10.0.2.2:8081/api/v1/title").openConnection());
                 InputStream inputStream = uc.getInputStream();
                 String html = IOUtils.toString(inputStream);
                 String title = getPageTitle(html);
