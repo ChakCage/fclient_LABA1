@@ -24,68 +24,68 @@ public class PinpadActivity extends AppCompatActivity {
     String pin = "";
     final int MAX_KEYS = 10;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pinpad);
-
-        tvPin = findViewById(R.id.txtPin);
-
-        ShuffleKeys();
-
-        findViewById(R.id.btnOK).setOnClickListener((View) -> {
-            Intent it = new Intent();
-            it.putExtra("pin", pin);
-            setResult(RESULT_OK, it);
-            finish();
-        });
-
-        findViewById(R.id.btnReset).setOnClickListener((View) -> {
-            pin = "";
-            tvPin.setText("");
-        });
-    }
+//    @Override
 //    protected void onCreate(Bundle savedInstanceState) {
 //        super.onCreate(savedInstanceState);
-//        binding = ActivityPinpadBinding.inflate(getLayoutInflater());
-//        setContentView(binding.getRoot());
-////        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-////            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-////            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-////            return insets;
-////        });
-//        tvPin = binding.txtPin;
+//        setContentView(R.layout.activity_pinpad);
+//
+//        tvPin = findViewById(R.id.txtPin);
 //
 //        ShuffleKeys();
 //
-//        binding.btnOK.setOnClickListener((View) -> {
+//        findViewById(R.id.btnOK).setOnClickListener((View) -> {
 //            Intent it = new Intent();
 //            it.putExtra("pin", pin);
 //            setResult(RESULT_OK, it);
 //            finish();
 //        });
 //
-//        binding.btnReset.setOnClickListener((View) -> {
+//        findViewById(R.id.btnReset).setOnClickListener((View) -> {
 //            pin = "";
 //            tvPin.setText("");
 //        });
-//
-//        TextView ta = findViewById(R.id.txtAmount);
-//        String amt = String.valueOf(getIntent().getStringExtra("amount"));
-//        Long f = Long.valueOf(amt);
-//        DecimalFormat df = new DecimalFormat("#,###,###,##0.00");
-//        String s = df.format(f);
-//        ta.setText("Сумма: " + s);
-//
-//        TextView tp = findViewById(R.id.txtPtc);
-//        int pts = getIntent().getIntExtra("ptc", 0);
-//        if (pts == 2)
-//            tp.setText("Осталось две попытки");
-//        else if (pts == 1)
-//            tp.setText("Осталась одна попытка");
-//
-//
 //    }
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        binding = ActivityPinpadBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+//        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+//            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+//            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+//            return insets;
+//        });
+        tvPin = binding.txtPin;
+
+        ShuffleKeys();
+
+        binding.btnOK.setOnClickListener((View) -> {
+            Intent it = new Intent();
+            it.putExtra("pin", pin);
+            setResult(RESULT_OK, it);
+            finish();
+        });
+
+        binding.btnReset.setOnClickListener((View) -> {
+            pin = "";
+            tvPin.setText("");
+        });
+
+        TextView ta = findViewById(R.id.txtAmount);
+        String amt = String.valueOf(getIntent().getStringExtra("amount"));
+        Long f = Long.valueOf(amt);
+        DecimalFormat df = new DecimalFormat("#,###,###,##0.00");
+        String s = df.format(f);
+        ta.setText("Сумма: " + s);
+
+        TextView tp = findViewById(R.id.txtPtc);
+        int pts = getIntent().getIntExtra("ptc", 2);
+        if (pts == 2)
+            tp.setText("Осталось две попытки");
+        else if (pts == 1)
+            tp.setText("Осталась одна попытка");
+
+
+    }
 
     public void keyClick(View v)
     {

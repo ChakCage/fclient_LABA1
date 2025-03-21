@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity implements TransactionEvents
                         //String pin = data.getStringExtra("pin");
                         assert data != null;
                         pin = data.getStringExtra("pin");
-                        Toast.makeText(MainActivity.this, pin, Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(MainActivity.this, pin, Toast.LENGTH_SHORT).show();
                         synchronized (MainActivity.this) {
                             MainActivity.this.notifyAll();
                         }
@@ -139,18 +139,30 @@ public class MainActivity extends AppCompatActivity implements TransactionEvents
 
     public void onButtonClick(View v)
     {
+//        new Thread(()-> {
+//            try {
+//                byte[] trd = stringToHex("9F0206000000000100");
+//                boolean ok = transaction(trd);
+//                runOnUiThread(()-> {
+//                    Toast.makeText(MainActivity.this, ok ? "ok" : "failed", Toast.LENGTH_SHORT).show();
+//                });
+//
+//            } catch (Exception ex) {
+//                // todo: log error
+//            }
+//        }).start();
 //        byte[] key = stringToHex("0123456789ABCDEF0123456789ABCDE0");
 //        byte[] enc = encrypt(key, stringToHex("000000000000000102"));
 //        byte[] dec = decrypt(key, enc);
 //        String s = new String(Hex.encodeHex(dec)).toUpperCase();
 //        Toast.makeText(this, s, Toast.LENGTH_SHORT).show();
 //
-//        byte[] trd = stringToHex("9F0206000000000100");
-//        transaction(trd);
+        byte[] trd = stringToHex("9F0206000000000100");
+        transaction(trd);
 
-        Intent it = new Intent(this, PinpadActivity.class);
-//        startActivity(it);
-        activityResultLauncher.launch(it);
+//        Intent it = new Intent(this, PinpadActivity.class);
+////        startActivity(it);
+//        activityResultLauncher.launch(it);
     }
 
 //    public void onButtonClick(View v){
