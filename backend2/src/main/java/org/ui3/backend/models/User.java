@@ -43,7 +43,7 @@ public class User {
     public LocalDateTime activity;
 
     @ManyToMany
-    @JoinTable(name = "usersmuseums", joinColumns = @JoinColumn(name = "userid"),
+    @JoinTable(name = "usermuseums", joinColumns = @JoinColumn(name = "userid"),
             inverseJoinColumns = @JoinColumn(name = "museumid"))
     public Set<Museum> museums = new HashSet<>();
 
