@@ -6,14 +6,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
+import org.ui3.backend.models.Artist;
 import org.ui3.backend.models.Country;
 import org.ui3.backend.repositories.CountryRepository;
 
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 @RestController
 @RequestMapping("/api/v1")
@@ -22,8 +20,7 @@ public class CountryController {
     CountryRepository countryRepository;
 
     @GetMapping("/countries")
-    public List
-    getAllCountries() {
+    public List getAllCountries() {
         return countryRepository.findAll();
     }
 

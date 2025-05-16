@@ -1,6 +1,6 @@
 package org.ui3.backend.models;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -27,6 +27,6 @@ public class Country {
 
     @JsonIgnore
     @OneToMany(mappedBy = "country")
-    public List<Artist> artists = new ArrayList<Artist>();
+    public List<Artist> artists = new ArrayList<>();
 
 }

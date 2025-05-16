@@ -1,6 +1,6 @@
 package org.ui3.backend.models;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "artists")
@@ -20,7 +20,7 @@ public class Artist {
     @Column(name = "name", nullable = false, unique = true)
     public String name;
 
-    @Column(name = "age", nullable = false)
+    @Column(name = "century", nullable = false)
     public int age;
 
     @ManyToOne()

@@ -1,7 +1,7 @@
 package org.ui3.backend.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.*;
+import javax.persistence.*;
 
 import java.time.LocalDateTime;
 import java.util.HashSet;
@@ -43,7 +43,7 @@ public class User {
     public LocalDateTime activity;
 
     @ManyToMany
-    @JoinTable(name = "usermuseums", joinColumns = @JoinColumn(name = "userid"),
+    @JoinTable(name = "usersmuseums", joinColumns = @JoinColumn(name = "userid"),
             inverseJoinColumns = @JoinColumn(name = "museumid"))
     public Set<Museum> museums = new HashSet<>();
 
